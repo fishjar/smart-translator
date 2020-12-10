@@ -112,9 +112,12 @@ const bingTranslate = ({ q, tl = "zh-Hans" }) => {
   params.append("fromLang", "auto-detect");
   params.append("text", q);
   params.append("to", tl);
-  console.log("params----------->", params);
   return rq("https://cn.bing.com/ttranslatev3", {
     method: "POST",
+    headers: {
+      "user-agent":
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
+    },
     body: params,
   });
 };
