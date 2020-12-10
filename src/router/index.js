@@ -10,6 +10,7 @@ router
   .get("/bing/dict", handler.bing.dict)
   .get("/bing/translate", handler.bing.translate)
   .get("/youdao/translate", handler.youdao.translate)
+  .get("/youdao/dict", handler.youdao.dict)
   .get("/test/fetch", handler.test.fetch);
 
 export default router;

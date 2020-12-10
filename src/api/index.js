@@ -180,6 +180,24 @@ const youdaoTranslate = ({ q, tl = "AUTO" }) => {
   );
 };
 
+/**
+ * 有道词典
+ * @param {*} param0
+ */
+const youdaoDict = ({ q }) => {
+  return rq(
+    `https://m.youdao.com/dict?le=eng&q=${q}`,
+    {
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Mobile Safari/537.36",
+        "Accept-Language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
+      },
+    },
+    "text"
+  );
+};
+
 export default {
   fetchTest,
   googleTranslate,
@@ -188,4 +206,5 @@ export default {
   baiduLangDetect,
   bingDict,
   youdaoTranslate,
+  youdaoDict,
 };
