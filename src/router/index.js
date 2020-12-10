@@ -9,6 +9,7 @@ router
   .get("/baidu/langdetect", handler.baidu.langDetect)
   .get("/bing/dict", handler.bing.dict)
   .get("/bing/translate", handler.bing.translate)
+  .get("/youdao/translate", handler.youdao.translate)
   .get("/test/fetch", handler.test.fetch);
 
 export default router;

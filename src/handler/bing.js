@@ -21,7 +21,7 @@ const dict = async (ctx, next) => {
  * @param {*} next
  */
 const translate = async (ctx, next) => {
-  // tl="zh_CN","en"
+  // tl="zh-Hans","en"
   let { q, tl } = ctx.query;
   q = q.trim();
   ctx.assert(q, 400, "参数q不能为空");

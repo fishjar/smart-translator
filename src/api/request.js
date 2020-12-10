@@ -6,6 +6,9 @@ import logger from "../utils/logger";
  * request封装
  */
 export default async (url, options, resType = "json") => {
+  console.log("---------->");
+  console.log(url);
+  console.log(options);
   const controller = new AbortController();
   const timeout = setTimeout(() => {
     controller.abort();
@@ -17,7 +20,7 @@ export default async (url, options, resType = "json") => {
       method: "GET",
       ...options,
     });
-    console.log("<--------");
+    console.log("<----------");
     console.log(res.ok);
     console.log(res.status);
     console.log(res.statusText);

@@ -2,6 +2,7 @@ import qs from "querystring";
 import FormData from "form-data";
 import { URLSearchParams } from "url";
 import rq from "./request";
+import utils from "../utils";
 
 /**
  * 请求示例
@@ -141,6 +142,44 @@ const bingDict = ({ q }) => {
   );
 };
 
+/**
+ * 有道翻译
+ * @param {*} param0
+ */
+const youdaoTranslate = ({ q, tl = "AUTO" }) => {
+  const userAgent =
+    "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36";
+  const s = utils.youdaoSign(q, userAgent);
+  const params = new URLSearchParams();
+  params.append("i", q);
+  params.append("from", "AUTO");
+  params.append("to", tl);
+  params.append("smartresult", "dict");
+  params.append("client", "fanyideskweb");
+  params.append("salt", s.salt);
+  params.append("sign", s.sign);
+  params.append("lts", s.ts);
+  params.append("bv", s.bv);
+  params.append("doctype", "json");
+  params.append("version", "2.1");
+  params.append("keyfrom", "fanyi.web");
+  params.append("action", "FY_BY_CLICKBUTTION");
+  return rq(
+    `http://fanyi.youdao.com/translate_o?smartresult=dict&smartresult=rule`,
+    {
+      method: "POST",
+      headers: {
+        "User-Agent": userAgent,
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        Origin: "http://fanyi.youdao.com",
+        Referer: "http://fanyi.youdao.com/",
+        Cookie: "OUTFOX_SEARCH_USER_ID=823260787@119.147.183.50;",
+      },
+      body: params,
+    }
+  );
+};
+
 export default {
   fetchTest,
   googleTranslate,
@@ -148,4 +187,5 @@ export default {
   deeplTranslate,
   baiduLangDetect,
   bingDict,
+  youdaoTranslate,
 };

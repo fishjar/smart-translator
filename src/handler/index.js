@@ -3,6 +3,7 @@ import google from "./google";
 import baidu from "./baidu";
 import bing from "./bing";
 import deepl from "./deepl";
+import youdao from "./youdao";
 
 export default {
   test,
@@ -10,4 +11,5 @@ export default {
   baidu,
   bing,
   deepl,
+  youdao,
 };
