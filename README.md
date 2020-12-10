@@ -173,6 +173,37 @@ curl --location --request GET 'http://127.0.0.1:4000/bing/dict?q=query'
 }
 ```
 
+### Bing 翻译
+
+```sh
+curl --location --request GET 'http://127.0.0.1:4000/bing/translate?q=The%20above%20example%20creates%20a%20multisig%20wallet%20with%20three%20signers%20but%20only%20requires%20two%20approvals%20for%20a%20transaction%20to%20be%20executed.'
+```
+
+```json
+[
+  {
+    "detectedLanguage": {
+      "language": "en",
+      "score": 1
+    },
+    "translations": [
+      {
+        "text": "上述示例创建一个带三个签名者的多西格钱包，但只需执行两个审批。",
+        "transliteration": {
+          "text": "shàng shù shì lì chuàng jiàn yí gè dài sān gè qiān míng zhě de duō xī gé qián bāo ， dàn zhǐ xū zhí xíng liǎng gè shěn pī。",
+          "script": "Latn"
+        },
+        "to": "zh-Hans",
+        "sentLen": {
+          "srcSentLen": [128],
+          "transSentLen": [31]
+        }
+      }
+    ]
+  }
+]
+```
+
 ## 使用指引
 
 ```sh
