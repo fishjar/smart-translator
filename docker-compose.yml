@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    restart: always
+    ports:
+      - 4000:4000
+    volumes:
+      - "./vol/logs:/app/dist/log"
+    # networks:
+    #   - koarest
