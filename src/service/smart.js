@@ -8,9 +8,9 @@ import logger from "../utils/logger";
  * @param {*} q
  * @param {*} tl
  */
-const dict = async (q, tl = "cn") => {
+const dict = async (q, tl = "zh") => {
   const promiseBing = bing.dict(q);
-  const promiseYoudao = youdao.dict(q, tl);
+  const promiseYoudao = youdao.dict(q, tl === "en" ? "en" : "cn");
   const [resBing, resYoudao] = await Promise.all([promiseBing, promiseYoudao]);
   const data = [];
   if (resBing) {
@@ -51,7 +51,7 @@ const dict = async (q, tl = "cn") => {
  * @param {*} q
  * @param {*} tl
  */
-const translate = async (q, tl = "cn") => {
+const translate = async (q, tl = "zh") => {
   const googleBing = google.translate(q, tl === "en" ? "en" : "zh_CN");
   const promiseBing = bing.translate(q, tl === "en" ? "en" : "zh-Hans");
   const promiseYoudao = youdao.translate(q);
