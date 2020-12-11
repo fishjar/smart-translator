@@ -97,7 +97,6 @@ const translate = async (q, tl = "cn") => {
       );
     }
   }
-
   return data;
 };
 
