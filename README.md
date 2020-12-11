@@ -1,10 +1,15 @@
-# KOA REST boilerplate
+# Smart Translator
 
-## 支持特性
+## 支持翻译
 
-- 基于 web 框架[KOA](https://github.com/koajs/koa)，以及 ORM 框架[sequelize](https://github.com/sequelize/sequelize)，开箱即用
-- 简易登录及`JWT`验证、续签
-- 支持开发热重启，支持 ES6 语法，支持 babel 转码及编译压缩
+- 词典
+  - Bing 词典
+  - 有道词典
+- 翻译
+  - 谷歌翻译
+  - Bing 翻译
+  - 有道翻译
+  - DEEPL（待开发）
 
 ## 返回示例
 
@@ -204,14 +209,60 @@ curl --location --request GET 'http://127.0.0.1:4000/bing/translate?q=The%20abov
 ]
 ```
 
+### 有道词典
+
+```sh
+curl --location --request GET 'http://127.0.0.1:4000/youdao/dict?q=query'
+```
+
+```json
+{
+  "phonetic_UK": "[ˈkwɪəri]",
+  "phonetic_US": "[ˈkwɪri]",
+  "translation": [
+    "n. 疑问，质问；疑问号 ；[计] 查询",
+    "vt. 询问；对……表示疑问",
+    "vi. 询问；表示怀疑"
+  ],
+  "variant": [
+    "复数 queries",
+    "过去式 queried",
+    "过去分词 queried",
+    "现在分词 querying",
+    "第三人称单数 queries"
+  ]
+}
+```
+
+### 有道翻译
+
+```sh
+curl --location --request GET 'http://127.0.0.1:4000/youdao/translate?q=The%20above%20example%20creates%20a%20multisig%20wallet%20with%20three%20signers%20but%20only%20requires%20two%20approvals%20for%20a%20transaction%20to%20be%20executed.'
+```
+
+```json
+{
+  "translateResult": [
+    [
+      {
+        "tgt": "上面的示例创建了一个具有三个签署人的multisig钱包，但是执行一个事务只需要两个批准。",
+        "src": "The above example creates a multisig wallet with three signers but only requires two approvals for a transaction to be executed."
+      }
+    ]
+  ],
+  "errorCode": 0,
+  "type": "en2zh-CHS"
+}
+```
+
 ## 使用指引
 
 ```sh
 # 创建并进入目录
-mkdir koa-rest-boilerplate && cd "$_"
+mkdir smart-translator && cd "$_"
 
 # 克隆项目
-git clone https://github.com/fishjar/koa-rest-boilerplate.git .
+git clone https://github.com/fishjar/smart-translator.git .
 
 # 安装依赖
 yarn
@@ -224,9 +275,6 @@ yarn build
 
 # 启动编译后代码
 yarn start
-
-# 开发时，如有需要，运行下列命令启动一个mysql数据库服务
-sudo docker-compose -f ./src/db/docker-compose.mysql.yml up -d
 
 # 简易部署
 sudo docker-compose up -d
