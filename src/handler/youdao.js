@@ -10,7 +10,7 @@ const translate = async (ctx, next) => {
   let { q, tl } = ctx.query;
   q = q.trim();
   ctx.assert(q, 400, "参数q不能为空");
-  const res = await service.youdao.translate({ q, tl });
+  const res = await service.youdao.translate(q, tl);
   ctx.assert(res, 500, "未获取到数据");
   ctx.body = res;
   await next();
@@ -25,7 +25,7 @@ const dict = async (ctx, next) => {
   let { q, tl } = ctx.query;
   q = q.trim();
   ctx.assert(q, 400, "参数q不能为空");
-  const res = await service.youdao.dict({ q, tl });
+  const res = await service.youdao.dict(q, tl);
   ctx.assert(res, 500, "未获取到数据");
   ctx.body = res;
   await next();

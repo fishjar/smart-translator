@@ -3,10 +3,10 @@ import api from "../api";
 
 /**
  * Bing词典
- * @param {*} param0
+ * @param {*} word
  */
-const dict = async ({ word }) => {
-  const html = await api.bingDict({ q: word });
+const dict = async (word) => {
+  const html = await api.bingDict(word);
   const $ = cheerio.load(html);
 
   const search_word = $("#sb_form_q").val();
@@ -222,10 +222,11 @@ const dict = async ({ word }) => {
 
 /**
  * Bing翻译
- * @param {*} param0
+ * @param {*} q
+ * @param {*} tl
  */
-const translate = ({ q, tl = "zh-Hans" }) => {
-  return api.bingTranslate({ q, tl });
+const translate = (q, tl = "zh-Hans") => {
+  return api.bingTranslate(q, tl);
 };
 
 export default {

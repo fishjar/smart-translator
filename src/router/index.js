@@ -6,6 +6,7 @@ const router = new Router();
 router
   .get("/google/translate", handler.google.translate)
   .get("/deepl/translate", handler.deepl.translate)
+  .get("/deepl/splitinto", handler.deepl.splitInto)
   .get("/baidu/langdetect", handler.baidu.langDetect)
   .get("/bing/dict", handler.bing.dict)
   .get("/bing/translate", handler.bing.translate)

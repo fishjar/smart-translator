@@ -3,14 +3,20 @@ import api from "../api";
 
 /**
  * 有道翻译
- * @param {*} param0
+ * @param {*} q
+ * @param {*} tl
  */
-const translate = ({ q, tl = "AUTO" }) => {
-  return api.youdaoTranslate({ q, tl });
+const translate = (q, tl = "AUTO") => {
+  return api.youdaoTranslate(q, tl);
 };
 
-const dict = async ({ q, tl = "cn" }) => {
-  const html = await api.youdaoDict({ q });
+/**
+ * 有道词典
+ * @param {*} q
+ * @param {*} tl
+ */
+const dict = async (q, tl = "cn") => {
+  const html = await api.youdaoDict(q);
   const $ = cheerio.load(html);
 
   let phonetic_UK = "";

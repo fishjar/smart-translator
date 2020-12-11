@@ -20,8 +20,14 @@ const youdaoSign = (text, userAgent) => {
   };
 };
 
+const deeplID = () => {
+  let id = Math.round(1e4 * Math.random()) * 1e4 + 1;
+  return () => id++;
+};
+
 export default {
   foo,
   md5,
   youdaoSign,
+  deeplID,
 };

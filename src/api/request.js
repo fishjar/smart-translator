@@ -1,6 +1,10 @@
-import fetch from "node-fetch";
+import nodeFetch from "node-fetch";
+import fetchCookie from "fetch-cookie";
 import AbortController from "abort-controller";
 import logger from "../utils/logger";
+
+// cookie暂时无用
+const fetch = fetchCookie(nodeFetch);
 
 /**
  * request封装
