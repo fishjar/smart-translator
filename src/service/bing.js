@@ -211,12 +211,12 @@ const dict = async (word) => {
     audio_UK, //读音
     translation, //翻译
     variant, // 相关词
-    // coll, //搭配
-    // synonym, //同义词
-    // antonym, //反义词
-    // bilingual, //英汉双解
-    // ee, //英英
-    // sentence, //例句
+    coll, //搭配
+    synonym, //同义词
+    antonym, //反义词
+    bilingual, //英汉双解
+    ee, //英英
+    sentence, //例句
   };
 };
 

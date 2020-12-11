@@ -148,7 +148,7 @@ const baiduLangDetect = (q) => {
 /**
  * Bing翻译
  * @param {*} q
- * @param {*} tl
+ * @param {*} tl "zh-Hans","en"
  */
 const bingTranslate = (q, tl = "zh-Hans") => {
   const params = new URLSearchParams();
