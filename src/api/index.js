@@ -22,15 +22,15 @@ const fetchTest = () => {
  * @param {*} q
  * @param {*} tl
  */
-// 参数	说明
-// client	必要参数，填写 gtx 即可
-// dt	必要参数，填写 t 即可
-// dj	必要参数，填写 1 即可
-// ie	必要参数，填写 UTF-8 即可
-// sl	转换前的语言设置，auto为自动识别
-// tl	转换后的语言设置，值为语言的简称（例：中文简体为zh_CN）
-// q	要转换的文字
 const googleTranslate = (q, tl = "zh_CN") => {
+  // 参数	说明
+  // client	必要参数，填写 gtx 即可
+  // dt	必要参数，填写 t 即可
+  // dj	必要参数，填写 1 即可
+  // ie	必要参数，填写 UTF-8 即可
+  // sl	转换前的语言设置，auto为自动识别
+  // tl	转换后的语言设置，值为语言的简称（例：中文简体为zh_CN）
+  // q	要转换的文字
   const qsStr = qs.stringify({
     client: "gtx",
     dt: "t",
