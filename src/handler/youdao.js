@@ -22,10 +22,10 @@ const translate = async (ctx, next) => {
  * @param {*} next
  */
 const dict = async (ctx, next) => {
-  let { q } = ctx.query;
+  let { q, tl } = ctx.query;
   q = q.trim();
   ctx.assert(q, 400, "参数q不能为空");
-  const res = await service.youdao.dict({ q });
+  const res = await service.youdao.dict({ q, tl });
   ctx.assert(res, 500, "未获取到数据");
   ctx.body = res;
   await next();

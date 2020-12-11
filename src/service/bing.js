@@ -71,11 +71,11 @@ const dict = async ({ word }) => {
   }
 
   const translation = [];
-  const $translation = $(".qdef>ul");
+  const $translation = $("div.qdef > ul");
   if ($translation) {
     $translation.children("li").each((_, elem) => {
       const pos = $(elem).find(".pos").text();
-      const def = $(elem).find(".def span").text();
+      const def = $(elem).find(".def").text();
       translation.push({
         pos,
         def,

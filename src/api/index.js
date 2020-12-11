@@ -186,7 +186,7 @@ const youdaoTranslate = ({ q, tl = "AUTO" }) => {
  */
 const youdaoDict = ({ q }) => {
   return rq(
-    `https://m.youdao.com/dict?le=eng&q=${q}`,
+    `https://m.youdao.com/dict?le=eng&q=${encodeURI(q)}`,
     {
       headers: {
         "User-Agent":
