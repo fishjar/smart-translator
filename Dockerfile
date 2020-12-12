@@ -1,4 +1,4 @@
-FROM node
+FROM node:alpine
 
 # 将工作目录设置为 /app
 WORKDIR /app
@@ -8,12 +8,12 @@ ADD . /app
 
 # 安装依赖包
 # RUN npm install --registry=https://registry.npm.taobao.org
-RUN npm install
-# RUN yarn
+# RUN npm install
+RUN yarn
 
 # 编译
-RUN npm run build
-# RUN yarn build
+# RUN npm run build
+RUN yarn build
 
 # 使端口 4000 可供此容器外的环境使用
 EXPOSE 4000
@@ -23,5 +23,5 @@ EXPOSE 4000
 # ENV NODE_ENV production
 
 # 在容器启动时运行
-CMD [ "npm", "start" ]
-# CMD [ "yarn", "start" ]
+# CMD [ "npm", "start" ]
+CMD [ "yarn", "start" ]
