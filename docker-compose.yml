@@ -12,7 +12,7 @@ services:
       - "./vol/logs:/app/dist/log"
     environment:
       - VIRTUAL_HOST=sampleapi.example.com
-      - VIRTUAL_NETWORK=nginx-proxy
+      # - VIRTUAL_NETWORK=nginx-proxy
       - VIRTUAL_PORT=4000
       - LETSENCRYPT_HOST=sampleapi.example.com
       - LETSENCRYPT_EMAIL=email@example.com
