@@ -172,7 +172,7 @@ const bingTranslate = (q, tl = "zh-Hans") => {
 const bingDict = (q) => {
   const qsStr = qs.stringify({ q });
   return rq(
-    `https://www.bing.com/dict/search?${qsStr}`,
+    `https://cn.bing.com/dict/search?${qsStr}`,
     {
       headers: {
         "accept-language": "en-US,en;q=0.9",
