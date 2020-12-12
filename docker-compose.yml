@@ -6,7 +6,18 @@ services:
     image: smart-translator
     container_name: smart-translator
     restart: always
-    ports:
-      - 4000:4000
+    # ports:
+    #   - 4000:4000
     volumes:
       - "./vol/logs:/app/dist/log"
+    environment:
+      - VIRTUAL_NETWORK=nginx-proxy
+      - VIRTUAL_PORT=4000
+      - VIRTUAL_HOST=sampleapi.example.com
+      - LETSENCRYPT_HOST=sampleapi.example.com
+      - LETSENCRYPT_EMAIL=email@example.com
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
