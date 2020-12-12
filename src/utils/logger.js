@@ -11,9 +11,10 @@ const infoLogPath = path.join(LOG_PATH, `%DATE%.info.log`);
 const debugLogPath = path.join(LOG_PATH, `%DATE%.debug.log`);
 
 const { combine, timestamp, label, printf } = winston.format;
+
 // 自定义日志格式
 const myFormat = printf(
-  info => `${info.timestamp} [${info.level}] ${info.message}`
+  (info) => `${info.timestamp} [${info.level}] ${info.message}`
 );
 
 // 日志记录器
@@ -23,20 +24,23 @@ const logger = winston.createLogger({
   transports: [
     new winston.transports.DailyRotateFile({
       filename: errorLogPath,
-      level: "error"
+      level: "error",
     }),
     new winston.transports.DailyRotateFile({
       filename: infoLogPath,
-      level: "info"
+      level: "info",
     }),
-    new winston.transports.DailyRotateFile({ filename: debugLogPath })
-  ]
+    new winston.transports.DailyRotateFile({
+      filename: debugLogPath,
+    }),
+  ],
 });
 
+// 非生产环境，打印到命令行
 if (process.env.NODE_ENV !== "production") {
   logger.add(
     new winston.transports.Console({
-      format: winston.format.simple()
+      format: winston.format.simple(),
     })
   );
 }

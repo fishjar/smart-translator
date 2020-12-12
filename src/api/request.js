@@ -10,9 +10,9 @@ const fetch = fetchCookie(nodeFetch);
  * request封装
  */
 export default async (url, options, resType = "json") => {
-  console.log("---------->");
-  console.log(url);
-  console.log(options);
+  // console.log("---------->");
+  // console.log(url);
+  // console.log(options);
   const controller = new AbortController();
   const timeout = setTimeout(() => {
     controller.abort();
@@ -24,12 +24,12 @@ export default async (url, options, resType = "json") => {
       method: "GET",
       ...options,
     });
-    console.log("<----------");
-    console.log(res.ok);
-    console.log(res.status);
-    console.log(res.statusText);
-    console.log(res.headers.raw());
-    console.log(res.headers.get("content-type"));
+    // console.log("<----------");
+    // console.log(res.ok);
+    // console.log(res.status);
+    // console.log(res.statusText);
+    // console.log(res.headers.raw());
+    // console.log(res.headers.get("content-type"));
     if (!res.ok) {
       throw new Error(`[${res.status}]${res.statusText}`);
     }

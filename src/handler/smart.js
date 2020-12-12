@@ -42,23 +42,21 @@ const auto = async (ctx, next) => {
   ctx.assert(q, 400, "参数q不能为空");
 
   const lang = await service.baidu.langDetect(q);
-  ctx.assert(lang, 500, "语言自动识别失败");
+  ctx.assert(lang, 500, "自动识别语言失败");
 
   const sl = lang.lan || "zh";
-  const isWord = !q.includes(" ");
-
-  if (sl === "en" && isWord) {
+  if (sl === "en" && q.match(/\w+/g) && q.match(/\w+/g).length === 1) {
     // 单个英文单词
     const tl = "zh";
     const res = await service.smart.dict(q, tl);
     ctx.assert(res, 500, "未获取到数据");
-    ctx.body = { q, sl, tl, isWord, res };
+    ctx.body = { q, sl, tl, from: "dict", res };
   } else {
     // 句子或中文
     const tl = sl === "zh" ? "en" : "zh";
     const res = await service.smart.translate(q, tl);
     ctx.assert(res, 500, "未获取到数据");
-    ctx.body = { q, sl, tl, isWord, res };
+    ctx.body = { q, sl, tl, from: "trans", res };
   }
 
   await next();

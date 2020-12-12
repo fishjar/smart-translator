@@ -7,8 +7,17 @@ const foo = () => {
   return "bar";
 };
 
+/**
+ * MD5计算
+ * @param {*} text
+ */
 const md5 = (text) => crypto.createHash("md5").update(text).digest("hex");
 
+/**
+ * 有道签名
+ * @param {*} text
+ * @param {*} userAgent
+ */
 const youdaoSign = (text, userAgent) => {
   const ts = Date.now().toString();
   const salt = ts + parseInt(10 * Math.random(), 10);
@@ -20,6 +29,9 @@ const youdaoSign = (text, userAgent) => {
   };
 };
 
+/**
+ * deepl ID 生成器
+ */
 const deeplID = () => {
   let id = Math.round(1e4 * Math.random()) * 1e4 + 1;
   return () => id++;

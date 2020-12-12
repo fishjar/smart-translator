@@ -16,11 +16,20 @@ const dict = async (q, tl = "zh") => {
   if (resBing) {
     try {
       data.push({
-        source: "bing",
+        bot: "bing",
+        botName: "微软词典",
         phoneticUS: resBing["phonetic_US"],
         phoneticUK: resBing["phonetic_UK"],
-        results: resBing.translation.map((item) => item.pos + " " + item.def),
-        variants: resBing.variant.map((item) => `${item.pos}: ${item.def}`),
+        audioUS: resBing["audio_US"],
+        audioUK: resBing["audio_UK"],
+        trans: resBing.translation,
+        variants: resBing.variant,
+        colls: resBing.coll,
+        synonyms: resBing.synonym,
+        antonyms: resBing.antonym,
+        bilinguals: resBing.bilingual,
+        ees: resBing.ee,
+        // sentences: resBing.sentence,
       });
     } catch (err) {
       logger.error(
@@ -30,12 +39,27 @@ const dict = async (q, tl = "zh") => {
   }
   if (resYoudao) {
     try {
+      const trans = resYoudao.translation.map((item) => {
+        const [pos, ...defs] = item.split(/\s+/);
+        return {
+          pos,
+          def: defs.join(""),
+        };
+      });
+      const variants = resYoudao.variant.map((item) => {
+        const [pos, ...defs] = item.split(/\s+/);
+        return {
+          pos,
+          def: defs.join(""),
+        };
+      });
       data.push({
-        source: "youdao",
+        bot: "youdao",
+        botName: "有道词典",
         phoneticUS: resYoudao["phonetic_US"],
         phoneticUK: resYoudao["phonetic_UK"],
-        results: resYoudao.translation,
-        variants: resYoudao.variant,
+        trans,
+        variants,
       });
     } catch (err) {
       logger.error(
@@ -64,7 +88,8 @@ const translate = async (q, tl = "zh") => {
   if (resGoogle) {
     try {
       data.push({
-        source: "google",
+        bot: "google",
+        botName: "谷歌翻译",
         result: resGoogle.sentences[0].trans,
       });
     } catch (err) {
@@ -76,7 +101,8 @@ const translate = async (q, tl = "zh") => {
   if (resBing) {
     try {
       data.push({
-        source: "bing",
+        bot: "bing",
+        botName: "微软翻译",
         result: resBing[0].translations[0].text,
       });
     } catch (err) {
@@ -88,7 +114,8 @@ const translate = async (q, tl = "zh") => {
   if (resYoudao) {
     try {
       data.push({
-        source: "youdao",
+        bot: "youdao",
+        botName: "有道翻译",
         result: resYoudao.translateResult[0][0].tgt,
       });
     } catch (err) {

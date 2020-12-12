@@ -11,7 +11,243 @@
   - 有道翻译
   - DEEPL（待开发）
 
+## 使用指引
+
+```sh
+# 创建并进入目录
+mkdir smart-translator && cd "$_"
+
+# 克隆项目
+git clone https://github.com/fishjar/smart-translator.git .
+
+# 安装依赖
+yarn
+
+# 开发
+yarn dev
+
+# 编译（清空dist文件夹+转码+压缩）
+yarn build
+
+# 启动编译后代码
+yarn start
+
+# 简易部署
+sudo docker-compose up -d
+```
+
 ## 返回示例
+
+### 自动翻译
+
+```sh
+curl --location --request GET 'http://127.0.0.1:4000/smart/auto?q=query'
+```
+
+```json
+{
+  "q": "query",
+  "sl": "en",
+  "tl": "zh",
+  "from": "dict",
+  "res": [
+    {
+      "bot": "bing",
+      "botName": "微软词典",
+      "phoneticUS": "['kwɪri]",
+      "phoneticUK": "['kwɪəri]",
+      "audioUS": "https://dictionary.blob.core.chinacloudapi.cn/media/audio/tom/c3/59/C3597DD9CF6B0941D30975C6B947FF52.mp3",
+      "audioUK": "https://dictionary.blob.core.chinacloudapi.cn/media/audio/george/c3/59/C3597DD9CF6B0941D30975C6B947FF52.mp3",
+      "trans": [
+        {
+          "pos": "n.",
+          "def": "询问；疑问；问号"
+        },
+        {
+          "pos": "v.",
+          "def": "询问；怀疑；表示疑虑"
+        },
+        {
+          "pos": "Web",
+          "def": "查询；质问；问题"
+        }
+      ],
+      "variants": [
+        {
+          "pos": "Plural Form",
+          "def": "queries"
+        },
+        {
+          "pos": "Past Participle",
+          "def": "queried"
+        },
+        {
+          "pos": "Present Participle",
+          "def": "querying"
+        }
+      ],
+      "colls": [
+        {
+          "pos": "v.+n.",
+          "def": ["answer query", "raise query"]
+        }
+      ],
+      "synonyms": [
+        {
+          "pos": "v.",
+          "def": ["question", "cast doubt on", "doubt", "suspect", "inquire"]
+        },
+        {
+          "pos": "n.",
+          "def": [
+            "inquiry",
+            "request",
+            "interrogation",
+            "uncertainty",
+            "reservation"
+          ]
+        }
+      ],
+      "antonyms": [
+        {
+          "pos": "v.",
+          "def": ["trust", "answer"]
+        },
+        {
+          "pos": "n.",
+          "def": ["certainty"]
+        }
+      ],
+      "bilinguals": [
+        {
+          "pos": "n.",
+          "def": [
+            {
+              "gra": "",
+              "comple": "",
+              "bil": "疑问；询问",
+              "val": "a question, especially one asking for information or expressing a doubt about sth"
+            },
+            {
+              "gra": "",
+              "comple": "",
+              "bil": "问号",
+              "val": "a question mark to show that sth has not been finished or decided"
+            }
+          ]
+        },
+        {
+          "pos": "v.",
+          "def": [
+            {
+              "gra": "",
+              "comple": "~ sth~ what, whether, etc.…",
+              "bil": "怀疑；表示疑虑",
+              "val": "to express doubt about whether sth is correct or not"
+            },
+            {
+              "gra": "",
+              "comple": "+ speech",
+              "bil": "询问",
+              "val": "to ask a question"
+            }
+          ]
+        }
+      ],
+      "ees": [
+        {
+          "pos": "n.",
+          "def": [
+            "a request for information",
+            "a doubt or criticism",
+            "a question that you ask because you want information or because you are not certain about something"
+          ]
+        },
+        {
+          "pos": "v.",
+          "def": [
+            "to express doubts about, or objections to, something",
+            "to ask something as a question",
+            "inquire"
+          ]
+        }
+      ]
+    },
+    {
+      "bot": "youdao",
+      "botName": "有道词典",
+      "phoneticUS": "[ˈkwɪri]",
+      "phoneticUK": "[ˈkwɪəri]",
+      "trans": [
+        {
+          "pos": "n.",
+          "def": "疑问，质问；疑问号；[计]查询"
+        },
+        {
+          "pos": "vt.",
+          "def": "询问；对……表示疑问"
+        },
+        {
+          "pos": "vi.",
+          "def": "询问；表示怀疑"
+        }
+      ],
+      "variants": [
+        {
+          "pos": "复数",
+          "def": "queries"
+        },
+        {
+          "pos": "过去式",
+          "def": "queried"
+        },
+        {
+          "pos": "过去分词",
+          "def": "queried"
+        },
+        {
+          "pos": "现在分词",
+          "def": "querying"
+        },
+        {
+          "pos": "第三人称单数",
+          "def": "queries"
+        }
+      ]
+    }
+  ]
+}
+```
+
+```sh
+curl --location --request GET 'http://127.0.0.1:4000/smart/auto?q=The%20above%20example%20creates%20a%20multisig%20wallet%20with%20three%20signers%20but%20only%20requires%20two%20approvals%20for%20a%20transaction%20to%20be%20executed.'
+```
+
+```json
+{
+  "q": "The above example creates a multisig wallet with three signers but only requires two approvals for a transaction to be executed.",
+  "sl": "en",
+  "tl": "zh",
+  "from": "trans",
+  "res": [
+    {
+      "bot": "google",
+      "botName": "谷歌翻译",
+      "result": "上面的示例创建了一个带有三个签名者的多重签名钱包，但是只需要两个批准就可以执行交易。"
+    },
+    {
+      "bot": "bing",
+      "botName": "微软翻译",
+      "result": "上述示例创建一个带三个签名者的多西格钱包，但只需执行两个审批。"
+    },
+    {
+      "bot": "youdao",
+      "botName": "有道翻译",
+      "result": "上面的示例创建了一个具有三个签署人的multisig钱包，但是执行一个事务只需要两个批准。"
+    }
+  ]
+}
+```
 
 ### 谷歌翻译
 
@@ -174,6 +410,134 @@ curl --location --request GET 'http://127.0.0.1:4000/bing/dict?q=query'
       "pos": "Present Participle",
       "def": "querying"
     }
+  ],
+  "coll": [
+    {
+      "pos": "v.+n.",
+      "def": ["answer query", "raise query"]
+    }
+  ],
+  "synonym": [
+    {
+      "pos": "v.",
+      "def": ["question", "cast doubt on", "doubt", "suspect", "inquire"]
+    },
+    {
+      "pos": "n.",
+      "def": [
+        "inquiry",
+        "request",
+        "interrogation",
+        "uncertainty",
+        "reservation"
+      ]
+    }
+  ],
+  "antonym": [
+    {
+      "pos": "v.",
+      "def": ["trust", "answer"]
+    },
+    {
+      "pos": "n.",
+      "def": ["certainty"]
+    }
+  ],
+  "bilingual": [
+    {
+      "pos": "n.",
+      "def": [
+        {
+          "gra": "",
+          "comple": "",
+          "bil": "疑问；询问",
+          "val": "a question, especially one asking for information or expressing a doubt about sth"
+        },
+        {
+          "gra": "",
+          "comple": "",
+          "bil": "问号",
+          "val": "a question mark to show that sth has not been finished or decided"
+        }
+      ]
+    },
+    {
+      "pos": "v.",
+      "def": [
+        {
+          "gra": "",
+          "comple": "~ sth~ what, whether, etc.…",
+          "bil": "怀疑；表示疑虑",
+          "val": "to express doubt about whether sth is correct or not"
+        },
+        {
+          "gra": "",
+          "comple": "+ speech",
+          "bil": "询问",
+          "val": "to ask a question"
+        }
+      ]
+    }
+  ],
+  "ee": [
+    {
+      "pos": "n.",
+      "def": [
+        "a request for information",
+        "a doubt or criticism",
+        "a question that you ask because you want information or because you are not certain about something"
+      ]
+    },
+    {
+      "pos": "v.",
+      "def": [
+        "to express doubts about, or objections to, something",
+        "to ask something as a question",
+        "inquire"
+      ]
+    }
+  ],
+  "sentence": [
+    {
+      "sen_en": "But since the temp tables had not been defined and realized in IWA, Informix handled the second query as a normal query.",
+      "sen_cn": "但是，由于在IWA中无法定义和实现临时表，所以Informix像处理普通查询一样处理第二次查询。"
+    },
+    {
+      "sen_en": "One of the earliest activities of the Query working group was to draw up a formal statement of requirements for an XML query language.",
+      "sen_cn": "Query工作组的早期活动之一就是起草XML查询语言需求的正式声明。"
+    },
+    {
+      "sen_en": "Clients can connect to it and query certain status or runtime information; at the moment only configuration items seem to be available.",
+      "sen_cn": "客户端连接到系统中，查询特定状态或运行时信息；目前似乎只能获取配置项。"
+    },
+    {
+      "sen_en": "It is possible to call any method in the context of a query expression.",
+      "sen_cn": "可以在查询运算式的内容中呼叫任何方法。"
+    },
+    {
+      "sen_en": "Within the body of a subquery, it is often necessary to refer to the value of a column in the active row of the main query.",
+      "sen_cn": "在子查询的正文中，通常需要引用主查询的活动行中的列的值。"
+    },
+    {
+      "sen_en": "To query the database, a user or application can connect to any server instance to which the database is attached.",
+      "sen_cn": "若要查询数据库，用户或应用程序可以连接到任意一个附加有数据库的服务器实例。"
+    },
+    {
+      "sen_en": "Click OK in the form of a query and you've indicated that you are prepared to pay for a database operation.",
+      "sen_cn": "点击查询表单的OK按钮，表示你确定准备为GAE的数据库操作而付费。"
+    },
+    {
+      "sen_en": "One of my tests used a query to select records into a temp table and then a second query to further refine the results from the temp tables.",
+      "sen_cn": "我的一个测试中使用了一个查询，该查询将一些记录挑选出来放入一个临时表中，然后另一个查询将进一步筛选临时表中的结果。"
+    },
+    {
+      "sen_en": "If you do this, you will not be able to limit the data sources to which data mining model users can query.",
+      "sen_cn": "如果执行此操作，将无法限制数据挖掘模型用户可以查询的数据源。"
+    },
+    {
+      "sen_en": "Typically, REST forms a request by beginning with a service entry URL and then appending search parameters in the form of a query string.",
+      "sen_cn": "REST通常从服务入口URL开始形成一次请求，然后以查询字符串的形式追加搜索参数。"
+    }
   ]
 }
 ```
@@ -253,29 +617,4 @@ curl --location --request GET 'http://127.0.0.1:4000/youdao/translate?q=The%20ab
   "errorCode": 0,
   "type": "en2zh-CHS"
 }
-```
-
-## 使用指引
-
-```sh
-# 创建并进入目录
-mkdir smart-translator && cd "$_"
-
-# 克隆项目
-git clone https://github.com/fishjar/smart-translator.git .
-
-# 安装依赖
-yarn
-
-# 开发
-yarn dev
-
-# 编译（清空dist文件夹+转码+压缩）
-yarn build
-
-# 启动编译后代码
-yarn start
-
-# 简易部署
-sudo docker-compose up -d
 ```

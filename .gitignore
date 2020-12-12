@@ -1,6 +1,8 @@
 node_modules
 dist
 tmp
+vol
+log
 *.log
 *.sqlite
 *.db

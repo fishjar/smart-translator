@@ -13,19 +13,17 @@ export default () =>
     );
 
     // 记录请求的body信息
-    logger.info(
-      `[请求的body信息] ${JSON.stringify({
-        auth: ctx.state.user,
-        body: ctx.request.body,
-      })}`
-    );
+    // logger.info(
+    //   `[请求的body信息] ${JSON.stringify({
+    //     body: ctx.request.body,
+    //   })}`
+    // );
 
     await next();
 
     // 记录response信息
-    logger.info(
+    logger.debug(
       `[返回信息] ${JSON.stringify({
-        auth: ctx.state.user,
         body: ctx.body,
       })}`
     );
