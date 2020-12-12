@@ -23,6 +23,9 @@ git clone https://github.com/fishjar/smart-translator.git .
 # 安装依赖
 yarn
 
+# 更新依赖
+yarn upgrade-interactive  --latest
+
 # 开发
 yarn dev
 
