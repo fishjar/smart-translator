@@ -34,6 +34,9 @@ yarn start
 
 # 简易部署
 sudo docker-compose up -d
+
+# stack部署
+sudo docker stack deploy --compose-file docker-compose.yml translator
 ```
 
 ## 返回示例
