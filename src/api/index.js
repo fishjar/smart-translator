@@ -155,7 +155,7 @@ const bingTranslate = (q, tl = "zh-Hans") => {
   params.append("fromLang", "auto-detect");
   params.append("text", q);
   params.append("to", tl);
-  return rq("https://cn.bing.com/ttranslatev3", {
+  return rq("https://www.bing.com/ttranslatev3", {
     method: "POST",
     headers: {
       "user-agent":

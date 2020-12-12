@@ -10,9 +10,9 @@ const fetch = fetchCookie(nodeFetch);
  * request封装
  */
 export default async (url, options, resType = "json") => {
-  // console.log("---------->");
-  // console.log(url);
-  // console.log(options);
+  console.log("---------->");
+  console.log(url);
+  console.log(options);
   const controller = new AbortController();
   const timeout = setTimeout(() => {
     controller.abort();
@@ -24,29 +24,30 @@ export default async (url, options, resType = "json") => {
       method: "GET",
       ...options,
     });
-    // console.log("<----------");
-    // console.log(res.ok);
-    // console.log(res.status);
-    // console.log(res.statusText);
-    // console.log(res.headers.raw());
-    // console.log(res.headers.get("content-type"));
+    console.log("<----------");
+    console.log(res.ok);
+    console.log(res.status);
+    console.log(res.statusText);
+    console.log(res.headers.raw());
+    console.log(res.headers.get("content-type"));
     if (!res.ok) {
       throw new Error(`[${res.status}]${res.statusText}`);
     }
     // res.status >= 200 && res.status < 300
     switch (resType) {
       case "json":
-        result = res.json();
+        result = await res.json();
         break;
       case "text":
-        result = res.text();
+        result = await res.text();
         break;
       case "buffer":
-        result = res.buffer();
+        result = await res.buffer();
         break;
       default:
         throw new Error(`不支持的返回格式${resType}`);
     }
+    console.log(result);
   } catch (err) {
     if (err.name === "AbortError") {
       logger.error(
