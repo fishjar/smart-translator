@@ -28,7 +28,7 @@ const auto = async (q, tl = "zh-CN") => {
     q,
     sl: sl === "zh-CN" ? "zh" : sl,
     tl: tl === "zh-CN" ? "zh" : tl,
-    trans: res.sentences[0].trans,
+    trans: res.sentences.map((item) => item.trans).filter(Boolean),
     isWord: sl === "en" && !!q.match(/\w+/g) && q.match(/\w+/g).length === 1,
   };
 };
