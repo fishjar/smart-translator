@@ -22,7 +22,7 @@ const fetchTest = () => {
  * @param {*} q
  * @param {*} tl
  */
-const googleTranslate = (q, tl = "zh_CN") => {
+const googleTranslate = (q, tl = "zh-CN") => {
   // 参数	说明
   // client	必要参数，填写 gtx 即可
   // dt	必要参数，填写 t 即可

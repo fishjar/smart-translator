@@ -37,6 +37,7 @@ export default async (url, options, resType = "json") => {
     switch (resType) {
       case "json":
         result = await res.json();
+        console.log(result);
         break;
       case "text":
         result = await res.text();
@@ -47,7 +48,6 @@ export default async (url, options, resType = "json") => {
       default:
         throw new Error(`不支持的返回格式${resType}`);
     }
-    console.log(result);
   } catch (err) {
     if (err.name === "AbortError") {
       logger.error(

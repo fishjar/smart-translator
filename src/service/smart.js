@@ -75,15 +75,20 @@ const dict = async (q, tl = "zh") => {
  * @param {*} q
  * @param {*} tl
  */
-const translate = async (q, tl = "zh") => {
-  const googleBing = google.translate(q, tl === "en" ? "en" : "zh_CN");
+const translate = async (q, tl = "zh", excGoogle = false) => {
+  const promiseGoogle = google.translate(q, tl === "en" ? "en" : "zh_CN");
   const promiseBing = bing.translate(q, tl === "en" ? "en" : "zh-Hans");
   const promiseYoudao = youdao.translate(q);
-  const [resGoogle, resBing, resYoudao] = await Promise.all([
-    googleBing,
-    promiseBing,
-    promiseYoudao,
-  ]);
+  let resGoogle, resBing, resYoudao;
+  if (excGoogle) {
+    [resBing, resYoudao] = await Promise.all([promiseBing, promiseYoudao]);
+  } else {
+    [resGoogle, resBing, resYoudao] = await Promise.all([
+      promiseGoogle,
+      promiseBing,
+      promiseYoudao,
+    ]);
+  }
   const data = [];
   if (resGoogle) {
     try {

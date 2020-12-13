@@ -21,10 +21,10 @@ const dict = async (ctx, next) => {
  * @param {*} next
  */
 const translate = async (ctx, next) => {
-  let { q, tl } = ctx.query;
+  let { q, tl, exc } = ctx.query;
   q = q.trim();
   ctx.assert(q, 400, "参数q不能为空");
-  const res = await service.smart.translate(q, tl);
+  const res = await service.smart.translate(q, tl, !!exc);
   ctx.assert(res, 500, "未获取到数据");
   ctx.body = res;
   await next();

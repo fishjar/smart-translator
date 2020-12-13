@@ -255,6 +255,34 @@ curl --location --request GET 'http://127.0.0.1:4000/smart/auto?q=The%20above%20
 ### 谷歌翻译
 
 ```sh
+curl --location --request GET 'http://127.0.0.1:4000/google/auto?q=guide'
+```
+
+```json
+{
+  "q": "guide",
+  "sl": "en",
+  "tl": "zh",
+  "trans": "指南",
+  "isWord": true
+}
+```
+
+```sh
+curl --location --request GET 'http://127.0.0.1:4000/google/auto?q=%E6%8C%87%E5%8D%97'
+```
+
+```json
+{
+  "q": "指南",
+  "sl": "zh",
+  "tl": "en",
+  "trans": "guide",
+  "isWord": false
+}
+```
+
+```sh
 curl --location --request GET 'http://127.0.0.1:4000/google/translate?q=query'
 ```
 
