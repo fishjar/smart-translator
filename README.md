@@ -223,33 +223,37 @@ curl --location --request GET 'http://127.0.0.1:4000/smart/auto?q=query'
 ```
 
 ```sh
-curl --location --request GET 'http://127.0.0.1:4000/smart/auto?q=The%20above%20example%20creates%20a%20multisig%20wallet%20with%20three%20signers%20but%20only%20requires%20two%20approvals%20for%20a%20transaction%20to%20be%20executed.'
+curl --location --request GET 'http://127.0.0.1:4000/smart/translate?q=Filecoin%20is%20a%20peer-to-peer%20network%20that%20stores%20files%20on%20the%20internet,%20with%20built-in%20economic%20incentives%20to%20ensure%20files%20are%20stored%20reliably%20over%20time.%0A%0AAvailable%20storage%20and%20pricing%20is%20not%20controlled%20by%20any%20single%20company.%20Instead,%20Filecoin%20facilitates%20open%20markets%20for%20storing%20and%20retrieving%20files%20that%20anyone%20can%20participate%20in.'
 ```
 
 ```json
-{
-  "q": "The above example creates a multisig wallet with three signers but only requires two approvals for a transaction to be executed.",
-  "sl": "en",
-  "tl": "zh",
-  "from": "trans",
-  "res": [
-    {
-      "bot": "google",
-      "botName": "谷歌翻译",
-      "result": "上面的示例创建了一个带有三个签名者的多重签名钱包，但是只需要两个批准就可以执行交易。"
-    },
-    {
-      "bot": "bing",
-      "botName": "微软翻译",
-      "result": "上述示例创建一个带三个签名者的多西格钱包，但只需执行两个审批。"
-    },
-    {
-      "bot": "youdao",
-      "botName": "有道翻译",
-      "result": "上面的示例创建了一个具有三个签署人的multisig钱包，但是执行一个事务只需要两个批准。"
-    }
-  ]
-}
+[
+  {
+    "bot": "google",
+    "botName": "谷歌翻译",
+    "trans": [
+      "Filecoin是一个点对点网络，可将文件存储在Internet上，并具有内置的经济诱因，可确保随着时间的推移可靠地存储文件。\n\n",
+      "可用的存储空间和价格不受任何一家公司的控制。",
+      "相反，Filecoin促进了开放市场的存储和检索任何人都可以参与的文件。"
+    ]
+  },
+  {
+    "bot": "bing",
+    "botName": "微软翻译",
+    "trans": [
+      "Filecoin 是一个点对点网络，可将文件存储在 Internet 上，具有内置的经济激励措施，可确保文件随着时间的推移可靠地存储。",
+      "可用存储和定价不受任何单个公司控制。相反，Filecoin 有助于打开市场，用于存储和检索任何人都可以参与的文件。"
+    ]
+  },
+  {
+    "bot": "youdao",
+    "botName": "有道翻译",
+    "trans": [
+      "Filecoin是在互联网上存储文件的对等网络，具有内置的经济激励机制，以确保文件长期可靠地存储。",
+      "可用的存储和定价不受任何一家公司的控制。"
+    ]
+  }
+]
 ```
 
 ### 谷歌翻译

@@ -95,7 +95,7 @@ const translate = async (q, tl = "zh", excGoogle = false) => {
       data.push({
         bot: "google",
         botName: "谷歌翻译",
-        result: resGoogle.sentences[0].trans,
+        trans: resGoogle.sentences.map((item) => item.trans).filter(Boolean),
       });
     } catch (err) {
       logger.error(
@@ -108,7 +108,7 @@ const translate = async (q, tl = "zh", excGoogle = false) => {
       data.push({
         bot: "bing",
         botName: "微软翻译",
-        result: resBing[0].translations[0].text,
+        trans: resBing[0].translations[0].text.split("\n").filter(Boolean),
       });
     } catch (err) {
       logger.error(
@@ -121,7 +121,9 @@ const translate = async (q, tl = "zh", excGoogle = false) => {
       data.push({
         bot: "youdao",
         botName: "有道翻译",
-        result: resYoudao.translateResult[0][0].tgt,
+        trans: resYoudao.translateResult
+          .map((item) => item[0].tgt)
+          .filter(Boolean),
       });
     } catch (err) {
       logger.error(

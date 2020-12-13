@@ -10,6 +10,7 @@ router
   .get("/deepl/splitinto", handler.deepl.splitInto)
   .get("/baidu/langdetect", handler.baidu.langDetect)
   .get("/bing/dict", handler.bing.dict)
+  .get("/bing/dictf", handler.bing.dictf)
   .get("/bing/translate", handler.bing.translate)
   .get("/youdao/translate", handler.youdao.translate)
   .get("/youdao/dict", handler.youdao.dict)
