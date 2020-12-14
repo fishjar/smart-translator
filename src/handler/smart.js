@@ -7,7 +7,7 @@ import service from "../service";
  */
 const dict = async (ctx, next) => {
   let { q, tl } = ctx.query;
-  q = q.trim();
+  q = q && q.trim();
   ctx.assert(q, 400, "参数q不能为空");
   const res = await service.smart.dict(q, tl);
   ctx.assert(res, 500, "未获取到数据");
@@ -22,7 +22,7 @@ const dict = async (ctx, next) => {
  */
 const translate = async (ctx, next) => {
   let { q, tl, exc } = ctx.query;
-  q = q.trim();
+  q = q && q.trim();
   ctx.assert(q, 400, "参数q不能为空");
   const res = await service.smart.translate(q, tl, !!exc);
   ctx.assert(res, 500, "未获取到数据");
@@ -38,7 +38,7 @@ const translate = async (ctx, next) => {
 const auto = async (ctx, next) => {
   // sl: "en","zh"
   let { q } = ctx.query;
-  q = q.trim();
+  q = q && q.trim();
   ctx.assert(q, 400, "参数q不能为空");
 
   const lang = await service.baidu.langDetect(q);

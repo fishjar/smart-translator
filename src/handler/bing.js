@@ -7,7 +7,7 @@ import service from "../service";
  */
 const dict = async (ctx, next) => {
   let { q } = ctx.query;
-  q = q.trim();
+  q = q && q.trim();
   ctx.assert(q, 400, "参数q不能为空");
   const res = await service.bing.dict(q);
   ctx.assert(res, 500, "未获取到数据");
@@ -22,7 +22,7 @@ const dict = async (ctx, next) => {
  */
 const dictf = async (ctx, next) => {
   let { q } = ctx.query;
-  q = q.trim();
+  q = q && q.trim();
   ctx.assert(q, 400, "参数q不能为空");
   const res = await service.bing.dict(q);
   ctx.assert(res, 500, "未获取到数据");
@@ -53,7 +53,7 @@ const dictf = async (ctx, next) => {
 const translate = async (ctx, next) => {
   // tl="zh-Hans","en"
   let { q, tl } = ctx.query;
-  q = q.trim();
+  q = q && q.trim();
   ctx.assert(q, 400, "参数q不能为空");
   const res = await service.bing.translate(q, tl);
   ctx.assert(res, 500, "未获取到数据");
