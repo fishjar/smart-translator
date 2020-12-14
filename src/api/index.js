@@ -218,24 +218,6 @@ const bingDict = (q) => {
 };
 
 /**
- * Bing测试
- * @param {*} q
- */
-const bingTest = () => {
-  return rq(
-    `https://cn.bing.com/dict/search`,
-    {
-      headers: {
-        "user-agent":
-          "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
-        "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
-      },
-    },
-    "text"
-  );
-};
-
-/**
  * 有道翻译
  * @param {*} q
  * @param {*} tl
@@ -300,7 +282,6 @@ export default {
   deeplSplit,
   baiduLangDetect,
   bingDict,
-  bingTest,
   youdaoTranslate,
   youdaoDict,
 };
