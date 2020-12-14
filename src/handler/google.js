@@ -22,7 +22,6 @@ const translate = async (ctx, next) => {
  * @param {*} next
  */
 const auto = async (ctx, next) => {
-  // tl="zh_CN","en"
   let { q } = ctx.query;
   q = q && q.trim();
   ctx.assert(q, 400, "参数q不能为空");

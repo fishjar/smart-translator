@@ -20,14 +20,14 @@ const auto = async (q, tl = "zh-CN") => {
     return null;
   }
   const sl = res.src;
-  if (sl === "zh-CN") {
+  if (sl.slice(0, 2) === "zh") {
     tl = "en";
     res = await api.googleTranslate(q, tl);
   }
   return {
     q,
-    sl: sl === "zh-CN" ? "zh" : sl,
-    tl: tl === "zh-CN" ? "zh" : tl,
+    sl,
+    tl,
     trans: res.sentences.map((item) => item.trans).filter(Boolean),
     isWord: sl === "en" && !!q.match(/\w+/g) && q.match(/\w+/g).length === 1,
   };
