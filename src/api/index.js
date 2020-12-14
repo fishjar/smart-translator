@@ -190,6 +190,8 @@ const bingDict = (q) => {
         "sec-fetch-user": "?1",
         "upgrade-insecure-requests": "1",
       },
+      referrerPolicy: "no-referrer-when-downgrade",
+      mode: "cors",
     },
     "text"
   );
