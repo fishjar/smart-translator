@@ -177,40 +177,11 @@ const bingDict = (q) => {
   const qsStr = qs.stringify({ q });
   return rq(
     `https://cn.bing.com/dict/search?${qsStr}`,
-    // {
-    //   headers: {
-    //     accept:
-    //       "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    //     "accept-language": "en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7",
-    //     "cache-control": "no-cache",
-    //     pragma: "no-cache",
-    //     "sec-fetch-dest": "document",
-    //     "sec-fetch-mode": "navigate",
-    //     "sec-fetch-site": "none",
-    //     "sec-fetch-user": "?1",
-    //     "upgrade-insecure-requests": "1",
-    //     cookie:
-    //       "ipv6=hit=1607963172778&t=4; SRCHD=AF=NOFORM; NAP=V=1.9&E=17a8&C=a9p-p69CcihI2r2RPAG1GKIQQVSKaUi4ebaP-R5XldDb86ICihdeCA&W=1; KievRPSSecAuth=FABiARRaTOJILtFsMkpLVWSG6AN6C/svRwNmAAAEgAAACIsk%2B98EndbGIAGXzDloI78TbMi/8wxNDW4nrsFDFK4ij5e2NK2ey5HkUQc8DJ/OuN3G2lqa25ASa63UoD93iZtDwKxIhVjyHaX/V9W5iW/AI57zWA3soOJdw0TtHbYksDp93ZTcR9xYlgH7MpLMnqoZWxs1NOatBYOtBgONQ28iOsVyaJpVVhLiDMo78mAGC/8WgStJoED5OP84wB7QbqVkkhHcgHlrHjb4SA%2B5Ne1%2BPuOsM48wvP8d9Hk/UqSPSj679XrluWE5swDRz5VH/mjv%2BLp4ltX1tnOQp2/f64eDiqAMx/lxFvs/heFm0UVFNGo2DPPoxf9vm2jCdA5c5GOF9O/UxOqYyiQZ4pVpU2pwZwN%2BDNkn9IMlY10DDpRIIa6YjzRy9ME14q8UAM3XberT8MigtKKiJH4/4wJwLSDF; PPLState=1; WLS=C=&N=; MUIDB=3A9C9EC9220F6E563AD093B2260F6D5B; _FP=hta=on; SerpPWA=reg=1; MUIDB=3A9C9EC9220F6E563AD093B2260F6D5B; _EDGE_V=1; MUID=3A9C9EC9220F6E563AD093B2260F6D5B; SRCHUID=V=2&GUID=E8870032D6264C949AC44198515A27F6&dmnchg=1; btstkn=E5%252FsL01IQQwf6f1evNtehkCIb8vT%252F74Ou8X850M5woFIJ9SKl8t5edexhSU%252BnyA6; ENSEARCH=BENVER=0; _SS=SID=322160B00BE0657903536FC60ACE64FD&bIm=61247:; _tarLang=default=zh-Hans; _TTSS_OUT=hist=WyJlbiIsImFmIiwiemgtSGFucyJd; SNRHOP=I=&TS=; ipv6=hit=1607839628370&t=4; SRCHUSR=DOB=20190723&T=1607959570000&POEX=W&TPC=1607747204000; _EDGE_S=mkt=zh-cn&SID=3D8EF6EC61006A1E12B6F94C60436BEF; WLID=mVGqtPdjniDlqjjOijofA1F5IRSLRK3fO0Wm4HBI3Ud7SImPSlEV39xEe1h8S+Y+5+wm/RmTsottMsvrcKbinhbBQdW+ulPvgvR87Lx7dho=; SRCHHPGUSR=CW=1920&CH=921&DPR=1&UTC=480&WTS=63743556370&HV=1607960688&DM=0&BRW=W&BRH=M",
-    //   },
-    //   referrerPolicy: "no-referrer-when-downgrade",
-    //   mode: "cors",
-    // },
     {
       headers: {
         "user-agent":
           "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
-        accept:
-          "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
         "accept-language": "en-US,en;q=0.9",
-        "cache-control": "no-cache",
-        pragma: "no-cache",
-        "sec-fetch-dest": "document",
-        "sec-fetch-mode": "navigate",
-        "sec-fetch-site": "none",
-        "sec-fetch-user": "?1",
-        "upgrade-insecure-requests": "1",
-        cookie:
-          "ipv6=hit=1607966355485&t=4; SRCHD=AF=NOFORM; SRCHUID=V=2&GUID=26E480C48825437785C9FD053DEA882C&dmnchg=1; _SS=SID=33394B266866661F185C4486692567AB; _EDGE_S=F=1&SID=33394B266866661F185C4486692567AB; _EDGE_V=1; MUID=0EE2237426326248078E2CD4277163BA; MUIDB=0EE2237426326248078E2CD4277163BA; SRCHUSR=DOB=20201214&T=1607962752000; SRCHHPGUSR=HV=1607962754&WTS=63743559552",
       },
     },
     "text"
