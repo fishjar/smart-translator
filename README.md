@@ -11,6 +11,12 @@
   - 有道翻译
   - DEEPL（待开发）
 
+## 翻译系列自产自消项目
+
+- 后端翻译服务（smart-translator）： https://github.com/fishjar/smart-translator
+- 谷歌浏览器翻译插件（mihuan-translate）： https://github.com/fishjar/mihuan-translate
+- VSCODE 翻译插件（vscode-translate）： https://github.com/fishjar/vscode-translate
+
 ## 使用指引
 
 ```sh
