@@ -40,6 +40,7 @@ const dictf = async (ctx, next) => {
     antonyms: res.antonym,
     bilinguals: res.bilingual,
     ees: res.ee,
+    sentences: res.sentence,
   };
   ctx.body = data;
   await next();

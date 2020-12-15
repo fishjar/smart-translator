@@ -179,9 +179,9 @@ const bingDict = (q) => {
     `https://cn.bing.com/dict/search?${qsStr}`,
     {
       headers: {
+        "user-agent":
+          "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
         "accept-language": "en-US,en;q=0.9",
-        "User-Agent":
-          "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1",
       },
     },
     "text"

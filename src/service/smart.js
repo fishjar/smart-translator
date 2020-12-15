@@ -29,7 +29,7 @@ const dict = async (q, tl = "zh") => {
         antonyms: resBing.antonym,
         bilinguals: resBing.bilingual,
         ees: resBing.ee,
-        // sentences: resBing.sentence,
+        sentences: resBing.sentence,
       });
     } catch (err) {
       logger.error(
