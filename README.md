@@ -1,5 +1,7 @@
 # Smart Translator
 
+集成了多种翻译词典的后端翻译服务
+
 ## 支持翻译
 
 - 词典
@@ -11,11 +13,12 @@
   - 有道翻译
   - DEEPL（待开发）
 
-## 翻译系列自产自消项目
+## 翻译系列自用项目
 
 - 后端翻译服务（smart-translator）： https://github.com/fishjar/smart-translator
 - 谷歌浏览器翻译插件（mihuan-translate）： https://github.com/fishjar/mihuan-translate
 - VSCODE 翻译插件（vscode-translate）： https://github.com/fishjar/vscode-translate
+- 命令行翻译（gotrans）： https://github.com/fishjar/go-translate
 
 ## 使用指引
 
