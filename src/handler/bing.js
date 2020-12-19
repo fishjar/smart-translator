@@ -29,6 +29,8 @@ const dictf = async (ctx, next) => {
   const data = {
     bot: "bing",
     botName: "微软词典",
+    searchWord: res["search_word"],
+    resultWord: res["result_word"],
     phoneticUS: res["phonetic_US"],
     phoneticUK: res["phonetic_UK"],
     audioUS: res["audio_US"],
