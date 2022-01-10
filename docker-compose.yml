@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  web:
+  smart-translator:
     build: .
     image: smart-translator
     container_name: smart-translator

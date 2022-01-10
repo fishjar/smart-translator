@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  smart-translator:
+    build: .
+    image: smart-translator
+    container_name: smart-translator
+    ports:
+      - 4000:4000
+    volumes:
+      - "./log:/app/dist/log"
