@@ -4,7 +4,7 @@ import AbortController from "abort-controller";
 import logger from "../utils/logger";
 
 // cookie暂时无用
-const fetch = fetchCookie(nodeFetch);
+const fetch = fetchCookie(nodeFetch, new fetchCookie.toughCookie.CookieJar());
 
 /**
  * request封装
